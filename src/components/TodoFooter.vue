@@ -45,22 +45,6 @@ export default {
       return this.$store.state.header.todoItem.filter((ele) => ele.isDone == 0)
         .length;
     },
-    // change(val) {
-    //   if (val == 0) {
-    //     // return this.$store.state.header.todoItem;
-    //     return this.$store.commit("header/allItem", val);
-    //   } else if (val == 1) {
-    //     // return this.$store.state.header.todoItem.filter(
-    //     //   (ele) => ele.isDone == 0
-    //     // );
-    //     return this.$store.commit("header/unItem", val);
-    //   } else {
-    //     // return this.$store.state.header.todoItem.filter(
-    //     //   (ele) => ele.isDone == 1
-    //     // );
-    //     return this.$store.commit("header/doneItem", val);
-    //   }
-    // },
   },
   methods: {
     clear() {
@@ -68,20 +52,11 @@ export default {
     },
     change(val) {
       if (val == 0) {
-        console.log(1);
-        // return this.$store.state.header.todoItem;
-        return this.$store.commit("header/allItem", val);
+        this.$store.commit("header/change", val);
       } else if (val == 1) {
-        // return this.$store.state.header.todoItem.filter(
-        //   (ele) => ele.isDone == 0
-        // );
-        console.log(1);
-        return this.$store.commit("header/unItem", val);
+        this.$store.commit("header/change", val);
       } else {
-        // return this.$store.state.header.todoItem.filter(
-        //   (ele) => ele.isDone == 1
-        // );
-        return this.$store.commit("header/doneItem", val);
+        this.$store.commit("header/change", val);
       }
     },
   },

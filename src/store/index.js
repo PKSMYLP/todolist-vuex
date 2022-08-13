@@ -19,7 +19,16 @@ const vm = new Vuex.Store({
   },
   plugins: [createPersistedState()],
   getters: {
-    todoItem: (state) => state.header.todoItem,
+    // todoItem: (state) => state.header.todoItem,
+    todoItem(state) {
+      if (state.header.isAll == 0) {
+        return state.header.todoItem;
+      } else if (state.header.isAll == 1) {
+        return state.header.todoItem.filter((ele) => !ele.isDone);
+      } else {
+        return state.header.todoItem.filter((ele) => ele.isDone);
+      }
+    },
   },
 });
 export default vm;

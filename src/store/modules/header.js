@@ -3,6 +3,7 @@ export default {
   state: {
     // todo列表
     todoItem: [],
+    isAll: 0, // 0 全部完成 1 未完成 2 已完成
   },
   mutations: {
     //添加数据
@@ -13,18 +14,9 @@ export default {
     delItem(state, item) {
       state.todoItem.splice(item, 1);
     },
-    // 全部
-    allItem(state) {
-      state.todoItem;
-    },
-    // 未完成
-    unItem(state, val) {
-      state.todoItem.filter((ele) => ele.isDone == val);
-    },
-    // 已完成
-    doneItem(state, val) {
-      state.todoItem.filter((ele) => ele.isDone == val);
+    // 切换
+    change(state, num) {
+      state.isAll = num;
     },
   },
-  actions: {},
 };
